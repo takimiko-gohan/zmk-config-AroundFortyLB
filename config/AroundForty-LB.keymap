@@ -8,7 +8,7 @@
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1800
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 10
-#define MOUSE 6
+#define MOUSE 7
 
 // OS設定を日本語キーボードのまま使用するための変換定義
 #define JP_DQUOTE       AT                // "
@@ -113,10 +113,10 @@
         //layer_0
         Win-Default_Layer {
             bindings = <
-&mt LCTRL Q       &kp W         &kp E  &kp R  &kp T                                                      &kp Y            &kp U      &kp I         &kp O             &kp P
-&kp A             &kp S         &kp D  &kp F  &kp G                                                      &kp H            &kp J      &kp K         &kp L             &kp ENTER
-&mt LEFT_SHIFT Z  &kp X         &kp C  &kp V  &kp B          &none                        &mkp MB1       &kp N            &kp M      &kp COMMA     &kp PERIOD        &mt RIGHT_SHIFT SLASH
-&kp LEFT_SHIFT    &kp LEFT_GUI                &lt 3 SPACE    &kp JP_HANZEN                &mo 3          &kp BACKSPACE    &mo 7      &kp LEFT_ALT  &mo 8             &mo 5
+&mt LCTRL Q       &kp W         &kp E  &kp R  &kp T                                                    &kp Y            &kp U      &kp I         &kp O             &kp P
+&kp A             &kp S         &kp D  &kp F  &kp G                                                    &kp H            &kp J      &kp K         &kp L             &kp ENTER
+&mt LEFT_SHIFT Z  &kp X         &kp C  &kp V  &kp B        &none                        &mkp MB1       &kp N            &kp M      &kp COMMA     &kp PERIOD        &mt RIGHT_SHIFT SLASH
+&kp LEFT_SHIFT    &kp LEFT_GUI                &kp SPACE    &kp JP_HANZEN                &mo 3          &kp BACKSPACE    &mo 5      &kp LEFT_ALT  &mo 8             &mo 4
             >;
 
             sensor-bindings =
@@ -125,12 +125,12 @@
         };
 
         //layer_1
-        Mac-Default_Layer {
+        iPad-Default_Layer {
             bindings = <
-&mt LCTRL Q       &kp W         &kp E  &kp R  &kp T                                                      &kp Y            &kp U      &kp I         &kp O             &kp P
-&kp A             &kp S         &kp D  &kp F  &kp G                                                      &kp H            &kp J      &kp K         &kp L             &kp ENTER
-&mt LEFT_SHIFT Z  &kp X         &kp C  &kp V  &kp B          &none                        &mkp MB1       &kp N            &kp M      &kp COMMA     &kp PERIOD        &mt RIGHT_SHIFT SLASH
-&kp LEFT_SHIFT    &kp LEFT_GUI                &lt 3 SPACE    &kp LC(SPACE)                &mo 3          &kp BACKSPACE    &mo 7      &kp LEFT_ALT  &mo 8             &mo 5
+&trans  &trans  &trans  &trans  &trans                                        &trans  &trans  &trans   &trans  &trans
+&trans  &trans  &trans  &trans  &trans                                        &trans  &trans  &trans   &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &none                        &trans   &trans  &trans  &trans   &trans  &trans
+&trans  &trans                  &trans  &kp LC(SPACE)                &mo 2    &trans  &mo 6   &trans   &trans   &mo 4
             >;
 
             sensor-bindings =
@@ -139,38 +139,36 @@
         };
 
         //layer_2
-        Mac-Function_Layer {
+        iPad-Function_Layer {
             bindings = <
-&kp LG(A)       &kp LG(X)     &kp LG(C)    &kp LG(V)  &kp LG(F)    &kp LESS_THAN         &kp GREATER_THAN       &kp CARET         &kp PERCENT        &kp DOLLAR
-&kp TAB         &kp LEFT_GUI  &kp LS(TAB)  &mkp MB1   &mkp MB2     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp AT_SIGN       &kp AMPERSAND      &kp DOUBLE_QUOTES
-&kp LEFT_SHIFT  &trans        &trans       &trans     &mkp MB3     &trans                &kp NON_US_BACKSLASH   &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp EXCLAMATION    &kp QUESTION  &kp SINGLE_QUOTE
-&kp LCTRL       &trans                                &trans       &trans                &kp BACKSPACE          &kp ENTER         &trans             &trans             &trans        &kp HASH
+&kp LG(Q)       &kp LG(W)     &kp LG(E)      &kp LG(R)   &kp LG(T)                           &kp LG(Y)  &kp LG(U)  &kp LG(I)        &kp LG(D)      &kp LG(LC(Q))
+&kp LG(A)       &kp LG(S)     &kp LG(D)      &kp LG(F)   &kp LG(G)                           &kp LG(H)  &kp LG(J)  &kp LG(MINUS)    &kp LG(PLUS)   &kp ENTER
+&kp LG(Z)       &kp LG(X)     &kp LG(C)      &kp LG(V)   &kp LG(B)      &none       &none    &kp LG(N)  &kp LG(M)  &none            &kp LG(LS(S))  &kp LG(SLASH)
+&none           &none                                    &none          &none       &none    &trans     &none      &none            &none          &none
             >;
 
-            sensor-bindings =
-                <&mouse_scroll SCRL_LEFT SCRL_RIGHT>,
-                <&mouse_scroll SCRL_LEFT SCRL_RIGHT>;
+            sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
         };
 
         //layer_3
         Win-Function_Layer {
             bindings = <
-&kp LC(Q)       &kp LC(W)     &kp LC(E)      &kp LC(R)   &kp LC(T)                                         &kp LC(Y)  &kp LC(U)  &kp LC(I)        &kp LG(D)      &kp LG(L)
-&kp LC(A)       &kp LC(S)     &kp LC(D)      &kp LC(F)   &kp LC(G)                                         &kp LC(H)  &kp LC(J)  &kp LC(MINUS)    &kp LC(PLUS)   &kp ENTER
-&kp LC(Z)       &kp LC(X)     &kp LC(C)      &kp LC(V)   &kp LC(B)      &trans      &kp NON_US_BACKSLASH   &kp LC(N)  &kp LC(M)  &none            &kp LG(LS(S))  &kp LC(SLASH)
-&none           &none                                    &none          &none       &none                  &trans  &none      &none            &none          &none
+&kp LC(Q)       &kp LC(W)     &kp LC(E)      &kp LC(R)   &kp LC(T)                          &kp LC(Y)  &kp LC(U)  &kp LC(I)        &kp LG(D)      &kp LG(L)
+&kp LC(A)       &kp LC(S)     &kp LC(D)      &kp LC(F)   &kp LC(G)                          &kp LC(H)  &kp LC(J)  &kp LC(MINUS)    &kp LC(PLUS)   &kp ENTER
+&kp LC(Z)       &kp LC(X)     &kp LC(C)      &kp LC(V)   &kp LC(B)      &none       &none   &kp LC(N)  &kp LC(M)  &none            &kp LG(LS(S))  &kp LC(SLASH)
+&none           &none                                    &none          &none       &none   &trans     &none      &none            &none          &none
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
         };
 
         //layer_4
-        Mac-Common_Layer {
+        Win-Common_Layer {
             bindings = <
-&kp ESCAPE      &trans        &trans       &kp LG(UP_ARROW)    &trans                 &kp LG(W)    &kp LG(LEFT_ARROW)  &mkp MB3         &kp LG(RIGHT_ARROW)  &kp HOME
-&kp TAB         &kp LEFT_GUI  &kp LS(TAB)  &kp LG(LEFT_ARROW)  &kp LG(RIGHT_ARROW)    &kp LG(TAB)  &mkp MB1            &kp UP_ARROW     &mkp MB2             &kp PAGE_UP
-&kp LEFT_SHIFT  &trans        &trans       &kp LG(DOWN_ARROW)  &trans                 &trans       &kp LG(T)           &kp LS(LG(TAB))  &kp LEFT_ARROW       &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PAGE_DOWN
-&kp LCTRL       &trans                                         &trans                 &trans       &trans              &trans           &trans               &trans          &trans           &kp END
+&kp ESCAPE      &none        &none           &kp UP_ARROW    &none                                              &kp LC(W)          &kp LA(LEFT_ARROW)  &mkp MB3         &kp LA(RIGHT_ARROW)  &kp HOME
+&kp TAB         &none        &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW                                    &kp LC(PAGE_UP)    &mkp MB1            &kp UP_ARROW     &mkp MB2             &kp PAGE_UP
+&kp LEFT_SHIFT  &none        &none           &none           &none           &none           &kp LC(T)          &kp LC(PAGE_DOWN)  &kp LEFT_ARROW      &kp DOWN_ARROW   &kp RIGHT_ARROW      &kp PAGE_DOWN
+&kp LCTRL       &none                                        &none           &none           &kp DEL            &kp LA(ENTER)      &none               &none            &none                &none
             >;
 
             sensor-bindings =
@@ -179,31 +177,7 @@
         };
 
         //layer_5
-        Win-Common_Layer {
-            bindings = <
-&kp ESCAPE      &trans        &trans          &kp UP_ARROW    &trans                                               &kp LC(W)          &kp LA(LEFT_ARROW)  &mkp MB3         &kp LA(RIGHT_ARROW)  &kp HOME
-&kp TAB         &trans        &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW                                      &kp LC(PAGE_UP)    &mkp MB1            &kp UP_ARROW     &mkp MB2             &kp PAGE_UP
-&kp LEFT_SHIFT  &trans        &trans          &trans          &trans           &trans           &kp LC(T)          &kp LC(PAGE_DOWN)  &kp LEFT_ARROW      &kp DOWN_ARROW   &kp RIGHT_ARROW      &kp PAGE_DOWN
-&kp LCTRL       &trans                                        &trans           &trans           &kp DEL            &kp LA(ENTER)      &trans              &trans           &trans               &trans
-            >;
-
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_DN C_VOL_UP>,
-                <&inc_dec_kp C_VOL_DN C_VOL_UP>;
-        };
-
-        //layer_6
-        Auto-MOUSE_Layer {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans                      &mkp MB3  &mkp MB2  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans                      &mkp MB1  &trans    &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans    &trans  &trans    &trans    &trans  &trans  &trans
-&trans  &trans                  &trans    &trans    &trans  &trans    &trans    &trans  &trans  &trans
-            >;
-        };
-
-        //layer_7
-        Num_Layer {
+        Windows_Num_Layer {
             bindings = <
 &kp EXCL          &kp QMARK   &kp N7  &kp N8  &kp N9                            &kp JP_DQUOTE      &kp JP_QUOTE    &kp JP_LBRACE     &kp JP_RBRACE    &kp MINUS
 &kp JP_BACKQUOTE  &kp POUND   &kp N4  &kp N5  &kp N6                            &kp JP_UNDERSCORE  &kp JP_EQUAL    &kp JP_LBRACKET   &kp JP_RBRACKET  &kp JP_CARET
@@ -217,13 +191,39 @@
 
         };
 
+        //layer_6
+        iPad_num_Layer {
+            bindings = <
+&trans       &trans   &trans  &trans  &trans                          &kp DQT    &kp SQT     &kp LBRC   &kp RBRC  &trans
+&LEFT_BRACE  &trans   &trans  &trans  &trans                          &kp UNDER  &kp EQUAL   &kp LBKT   &kp RBKT  &kp CARET
+&trans       &trans   &trans  &trans  &trans   &trans        &trans   &trans     &kp COLON   &kp LPAR   &kp RPAR  &trans
+&trans       &trans                   &trans   &trans        &trans   &trans     &trans      &trans     &trans    &kp AT
+            >;
+
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_DN C_VOL_UP>,
+                <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+        };
+
+
+
+        //layer_7
+        Auto-MOUSE_Layer {
+            bindings = <
+&trans    &trans  &trans  &trans  &trans                        &trans    &trans    &trans  &trans  &trans
+&trans    &trans  &trans  &trans  &trans                        &trans    &trans    &trans  &trans  &trans
+&trans    &trans  &trans  &trans  &trans    &trans    &mkp MB1  &trans    &trans    &trans  &trans  &trans
+&mkp MB2  &trans                  &trans    &trans    &trans    &trans    &trans    &trans  &trans  &trans
+            >;
+        };
+
         //layer_8
         Setting_Layer {
             bindings = <
-&trans      &trans       &trans  &trans  &sys_reset                                &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&trans      &trans       &trans  &trans  &trans                                    &trans        &trans          &trans        &trans        &trans
-&trans      &trans       &trans  &trans  &trans    &to 0        &studio_unlock     &trans        &trans          &trans        &trans        &bt BT_CLR
-&sys_reset  &bootloader                  &trans    &to 1        &kp LG(LA(K))      &bootloader   &trans          &trans        &trans        &bt BT_CLR_ALL
+&none      &none       &none  &none  &sys_reset                                &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+&none      &none       &none  &none  &none                                    &none        &none          &none        &none        &none
+&none      &none       &none  &none  &none    &to 0        &studio_unlock     &none        &none          &none        &none        &bt BT_CLR
+&sys_reset  &bootloader              &none    &to 1        &kp LG(LA(K))      &bootloader  &none          &none        &none        &bt BT_CLR_ALL
             >;
         };
     };
