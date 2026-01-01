@@ -212,10 +212,10 @@
         //layer_6
         iPad_num_Layer {
             bindings = <
-&kp EXCL        &kp QMARK   &kp N7  &kp N8  &kp N9                          &kp DQT     &kp SQT     &kp LBRC   &kp RBRC      &kp MINUS
-&kp LEFT_BRACE  &kp POUND   &kp N4  &kp N5  &kp N6                          &kp UNDER   &kp EQUAL   &kp LBKT   &kp RBKT      &kp CARET
-&kp PRCNT       &kp N0      &kp N1  &kp N2  &kp N3   &none         &none    &kp SEMI    &kp COLON   &kp LPAR   &kp RPAR      &kp SLASH
-&none           &none                       &none    &none         &none    &none       &none       &none      &kp JP_PIPE   &kp AT
+&kp EXCL      &kp QMARK   &kp N7  &kp N8  &kp N9                          &kp DQT     &kp SQT     &kp LBRC   &kp RBRC      &kp MINUS
+&kp GRAVE     &kp POUND   &kp N4  &kp N5  &kp N6                          &kp UNDER   &kp EQUAL   &kp LBKT   &kp RBKT      &kp TILDE
+&kp PRCNT     &kp N0      &kp N1  &kp N2  &kp N3   &none         &none    &kp SEMI    &kp COLON   &kp LPAR   &kp RPAR      &kp SLASH
+&none         &none                       &none    &none         &none    &none       &none       &none      &kp JP_PIPE   &kp AT
             >;
 
             sensor-bindings =
