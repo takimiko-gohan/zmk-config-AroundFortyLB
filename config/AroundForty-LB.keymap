@@ -130,7 +130,7 @@
 &trans  &trans  &trans  &trans  &trans                                        &trans  &trans  &trans   &trans  &trans
 &trans  &trans  &trans  &trans  &trans                                        &trans  &trans  &trans   &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &none                        &trans   &trans  &trans  &trans   &trans  &trans
-&trans  &trans                  &trans  &kp LC(SPACE)                &mo 2    &trans  &mo 6   &trans   &trans   &mo 4
+&trans  &trans                  &trans  &kp LC(SPACE)                &mo 2    &trans  &mo 6   &trans   &trans  &trans
             >;
 
             sensor-bindings =
@@ -144,7 +144,7 @@
 &kp LG(Q)       &kp LG(W)     &kp LG(E)      &kp LG(R)   &kp LG(T)                           &kp LG(Y)  &kp LG(U)  &kp LG(I)        &kp LG(D)      &kp LG(LC(Q))
 &kp LG(A)       &kp LG(S)     &kp LG(D)      &kp LG(F)   &kp LG(G)                           &kp LG(H)  &kp LG(J)  &kp LG(MINUS)    &kp LG(PLUS)   &kp ENTER
 &kp LG(Z)       &kp LG(X)     &kp LG(C)      &kp LG(V)   &kp LG(B)      &none       &none    &kp LG(N)  &kp LG(M)  &none            &kp LG(LS(S))  &kp LG(SLASH)
-&none           &none                                    &none          &none       &none    &trans     &none      &none            &none          &none
+&none           &none                                    &none          &none       &none    &none      &none      &none            &none          &none
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
@@ -156,7 +156,7 @@
 &kp LC(Q)       &kp LC(W)     &kp LC(E)      &kp LC(R)   &kp LC(T)                          &kp LC(Y)  &kp LC(U)  &kp LC(I)        &kp LG(D)      &kp LG(L)
 &kp LC(A)       &kp LC(S)     &kp LC(D)      &kp LC(F)   &kp LC(G)                          &kp LC(H)  &kp LC(J)  &kp LC(MINUS)    &kp LC(PLUS)   &kp ENTER
 &kp LC(Z)       &kp LC(X)     &kp LC(C)      &kp LC(V)   &kp LC(B)      &none       &none   &kp LC(N)  &kp LC(M)  &none            &kp LG(LS(S))  &kp LC(SLASH)
-&none           &none                                    &none          &none       &none   &trans     &none      &none            &none          &none
+&none           &none                                    &none          &none       &none   &none      &none      &none            &none          &none
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
@@ -165,10 +165,10 @@
         //layer_4
         Win-Common_Layer {
             bindings = <
-&kp ESCAPE      &none        &none           &kp UP_ARROW    &none                                              &kp LC(W)          &kp LA(LEFT_ARROW)  &mkp MB3         &kp LA(RIGHT_ARROW)  &kp HOME
-&kp TAB         &none        &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW                                    &kp LC(PAGE_UP)    &mkp MB1            &kp UP_ARROW     &mkp MB2             &kp PAGE_UP
-&kp LEFT_SHIFT  &none        &none           &none           &none           &none           &kp LC(T)          &kp LC(PAGE_DOWN)  &kp LEFT_ARROW      &kp DOWN_ARROW   &kp RIGHT_ARROW      &kp PAGE_DOWN
-&kp LCTRL       &none                                        &none           &none           &kp DEL            &kp LA(ENTER)      &none               &none            &none                &none
+&kp ESCAPE      &none        &none           &kp UP_ARROW    &none                                               &kp LC(W)          &kp LA(LEFT_ARROW)  &mkp MB3         &kp LA(RIGHT_ARROW)  &kp HOME
+&kp TAB         &none        &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW                                     &kp LC(PAGE_UP)    &mkp MB1            &kp UP_ARROW     &mkp MB2             &kp PAGE_UP
+&kp LEFT_SHIFT  &none        &none           &none           &none            &none           &kp LC(T)          &kp LC(PAGE_DOWN)  &kp LEFT_ARROW      &kp DOWN_ARROW   &kp RIGHT_ARROW      &kp PAGE_DOWN
+&kp LCTRL       &none                                        &none            &none           &kp DEL            &kp LA(ENTER)      &none               &none            &none                &none
             >;
 
             sensor-bindings =
@@ -179,30 +179,29 @@
         //layer_5
         Windows_Num_Layer {
             bindings = <
-&kp EXCL          &kp QMARK   &kp N7  &kp N8  &kp N9                            &kp JP_DQUOTE      &kp JP_QUOTE    &kp JP_LBRACE     &kp JP_RBRACE    &kp MINUS
-&kp JP_BACKQUOTE  &kp POUND   &kp N4  &kp N5  &kp N6                            &kp JP_UNDERSCORE  &kp JP_EQUAL    &kp JP_LBRACKET   &kp JP_RBRACKET  &kp JP_CARET
-&kp PRCNT         &kp N0      &kp N1  &kp N2  &kp N3    &trans   &kp AMPERSAND  &kp SEMI           &kp JP_COLON    &kp JP_LPAREN     &kp JP_RPAREN    &kp SLASH
-&none             &none                       &trans    &trans   &trans         &trans             &trans          &trans            &kp JP_PIPE      &kp JP_AT 
+&kp EXCL          &kp QMARK   &kp N7  &kp N8  &kp N9                              &kp JP_DQUOTE      &kp JP_QUOTE    &kp JP_LBRACE     &kp JP_RBRACE    &kp MINUS
+&kp JP_BACKQUOTE  &kp POUND   &kp N4  &kp N5  &kp N6                              &kp JP_UNDERSCORE  &kp JP_EQUAL    &kp JP_LBRACKET   &kp JP_RBRACKET  &kp JP_CARET
+&kp PRCNT         &kp N0      &kp N1  &kp N2  &kp N3    &none     &kp AMPERSAND   &kp SEMI           &kp JP_COLON    &kp JP_LPAREN     &kp JP_RPAREN    &kp SLASH
+&none             &none                       &none     &none     &none           &none              &none           &none             &kp JP_PIPE      &kp JP_AT 
             >;
 
             sensor-bindings =
                 <&mouse_scroll SCRL_UP SCRL_DOWN>,
                 <&mouse_scroll SCRL_UP SCRL_DOWN>;
-
         };
 
         //layer_6
         iPad_num_Layer {
             bindings = <
-&trans          &trans   &trans  &trans  &trans                          &kp DQT    &kp SQT     &kp LBRC   &kp RBRC  &trans
-&kp LEFT_BRACE  &trans   &trans  &trans  &trans                          &kp UNDER  &kp EQUAL   &kp LBKT   &kp RBKT  &kp CARET
-&trans          &trans   &trans  &trans  &trans   &trans        &trans   &trans     &kp COLON   &kp LPAR   &kp RPAR  &trans
-&trans          &trans                   &trans   &trans        &trans   &trans     &trans      &trans     &trans    &kp AT
+&kp EXCL        &kp QMARK   &kp N7  &kp N8  &kp N9                          &kp DQT     &kp SQT     &kp LBRC   &kp RBRC      &kp MINUS
+&kp LEFT_BRACE  &kp POUND   &kp N4  &kp N5  &kp N6                          &kp UNDER   &kp EQUAL   &kp LBKT   &kp RBKT      &kp CARET
+&kp PRCNT       &kp N0      &kp N1  &kp N2  &kp N3   &none         &none    &kp SEMI    &kp COLON   &kp LPAR   &kp RPAR      &kp SLASH
+&none           &none                       &none    &none         &none    &none       &none       &none      &kp JP_PIPE   &kp AT
             >;
 
             sensor-bindings =
-                <&inc_dec_kp C_VOL_DN C_VOL_UP>,
-                <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+                <&mouse_scroll SCRL_UP SCRL_DOWN>,
+                <&mouse_scroll SCRL_UP SCRL_DOWN>;
         };
 
 
