@@ -86,13 +86,32 @@
     //新たな動作を定義する
 
     behaviors {
-        lt_to_layer_0: lt_to_layer_0 {
+        hmr_left: hmr_left {
             compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_TO_0";
-            bindings = <&mo>, <&to_layer_0>;
+            label = "HMR_LEFT";
+            bindings = <&kp>, <&kp>;
 
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            #binding-cells             = <2>;
+            tapping-term-ms            = <200>;
+            flavor                     = "balanced";
+            hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 26 27 28 29 30 31 36 37 38 39 40 41 42>;
+            require-prior-idel-ms      = <150>;
+            hold-trigger-on-release;
+            hold-while-undecided;
+        };
+
+        hmr_right: hmr_right {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HMR_RIGHT";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells             = <2>;
+            tapping-term-ms            = <200>;
+            flavor                     = "balanced";
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 25 32 33 34 35>;
+            require-prior-idel-ms      = <150>;
+            hold-trigger-on-release;
+            hold-while-undecided;
         };
 
         mouse_scroll: mouse_wheel_scrl {
@@ -113,10 +132,10 @@
         //layer_0
         Win-Default_Layer {
             bindings = <
-&mt LCTRL Q       &kp W         &kp E  &kp R  &kp T                                                    &kp Y            &kp U      &kp I         &kp O             &kp P
-&kp A             &kp S         &kp D  &kp F  &kp G                                                    &kp H            &kp J      &kp K         &kp L             &kp ENTER
-&mt LEFT_SHIFT Z  &kp X         &kp C  &kp V  &kp B        &none                        &mkp MB1       &kp N            &kp M      &kp COMMA     &kp PERIOD        &mt RIGHT_SHIFT SLASH
-&kp LEFT_SHIFT    &kp LEFT_GUI                &kp SPACE    &kp JP_HANZEN                &mo 3          &kp BACKSPACE    &mo 5      &kp LEFT_ALT  &mo 8             &mo 4
+&mt LCTRL Q       &kp W         &kp E  &kp R              &kp T                                                    &kp Y                 &kp U                  &kp I          &kp O             &kp P
+&kp A             &kp S         &kp D  &hmr_left LCTRL F  &hmr_left LSHIFT G                                       &hmr_right RSHIFT H   &hmr_right RCTRL J     &kp K          &kp L             &kp ENTER
+&mt LSHIFT Z      &kp X         &kp C  &kp V              &kp B               &none                 &mkp MB1       &kp N                 &kp M                  &kp COMMA      &kp PERIOD        &mt RIGHT_SHIFT SLASH
+&kp LSHIFT        &kp LEFT_GUI                            &kp SPACE           &kp JP_HANZEN         &mo 3          &kp BACKSPACE         &mo 5                  &kp LEFT_ALT   &mo 8             &mo 4
             >;
 
             sensor-bindings =
@@ -127,10 +146,10 @@
         //layer_1
         iPad-Default_Layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                                        &trans  &trans  &trans   &trans  &trans
-&trans  &trans  &trans  &trans  &trans                                        &trans  &trans  &trans   &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &none                        &trans   &trans  &trans  &trans   &trans  &trans
-&trans  &trans                  &trans  &kp LC(SPACE)                &mo 2    &trans  &mo 6   &trans   &trans  &trans
+&trans  &trans  &trans  &trans            &trans                                        &trans  &trans             &trans   &trans  &trans
+&trans  &trans  &trans  &hmr_left LGUI F  &trans                                        &trans  &hmr_right RGUI J  &trans   &trans  &trans
+&trans  &trans  &trans  &trans            &trans  &none                        &trans   &trans  &trans             &trans   &trans  &trans
+&trans  &trans                            &trans  &kp LC(SPACE)                &mo 2    &trans  &mo 6              &trans   &trans  &trans
             >;
 
             sensor-bindings =
