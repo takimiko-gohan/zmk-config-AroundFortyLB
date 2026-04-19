@@ -78,7 +78,7 @@
             sensor = <&trackball>;  /* どのセンサーのイベントで発火するか */
         };
 
-        auto_scroll_layer_2: auto-scroll-layer {
+        auto_scroll_layer_2: auto-scroll-layer-2 {
             compatible = "zmk,behavior-sensor-layer";
             label = "AUTO_SCROLL_LAYER";
             layer = <2>;            /* scroll-layers */
@@ -87,7 +87,7 @@
             sensor = <&trackball>;
         };
 
-        auto_scroll_layer_3: auto-scroll-layer {
+        auto_scroll_layer_3: auto-scroll-layer-3 {
             compatible = "zmk,behavior-sensor-layer";
             label = "AUTO_SCROLL_LAYER";
             layer = <3>;            /* scroll-layers */
