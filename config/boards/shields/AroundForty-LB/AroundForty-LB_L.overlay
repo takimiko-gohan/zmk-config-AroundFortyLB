@@ -53,7 +53,5 @@
         evt-type = <1>;
         x-input-code = <0>;
         y-input-code = <1>; 
-        automouse-layer = <7>;
-        scroll-layers = <2 3>;
     };
 };
