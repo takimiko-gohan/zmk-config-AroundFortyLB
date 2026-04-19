@@ -55,3 +55,45 @@
         y-input-code = <1>; 
     };
 };
+
+/* トラックボールのイベントを受けるリスナー（behavior に接続するためのノード） */
+&{/} {
+    trackball_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
+    };
+};
+
+/* behaviors 定義（自動でマウスレイヤー／スクロールレイヤーへ切替） */
+&{/} {
+    behaviors {
+        compatible = "zmk,behaviors";
+
+        auto_mouse_layer: auto-mouse-layer {
+            compatible = "zmk,behavior-sensor-layer";
+            label = "AUTO_MOUSE_LAYER";
+            layer = <7>;            /* 旧 automouse-layer の番号 */
+            timeout-ms = <2000>;    /* 無操作で戻るまでのミリ秒 */
+            trigger-threshold = <1>;/* 感度（小さいほど敏感） */
+            sensor = <&trackball>;  /* どのセンサーのイベントで発火するか */
+        };
+
+        auto_scroll_layer_2: auto-scroll-layer {
+            compatible = "zmk,behavior-sensor-layer";
+            label = "AUTO_SCROLL_LAYER";
+            layer = <2>;            /* scroll-layers */
+            timeout-ms = <1200>;
+            trigger-threshold = <2>;/* スクロールはやや大きめで発火 */
+            sensor = <&trackball>;
+        };
+
+        auto_scroll_layer_3: auto-scroll-layer {
+            compatible = "zmk,behavior-sensor-layer";
+            label = "AUTO_SCROLL_LAYER";
+            layer = <3>;            /* scroll-layers */
+            timeout-ms = <1200>;
+            trigger-threshold = <2>;/* スクロールはやや大きめで発火 */
+            sensor = <&trackball>;
+        };
+    };
+};
