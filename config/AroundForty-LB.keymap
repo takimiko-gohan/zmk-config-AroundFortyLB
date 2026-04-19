@@ -172,10 +172,10 @@
         //layer_3
         Win-Function_Layer {
             bindings = <
-&kp LC(Q)       &kp LC(W)     &kp LC(E)      &kp LC(R)   &kp LC(T)                          &kp LC(Y)  &kp LC(U)  &kp LC(I)        &kp LG(D)      &kp LG(L)
-&kp LC(A)       &kp LC(S)     &kp LC(D)      &kp LC(F)   &kp LC(G)                          &kp LC(H)  &kp LC(J)  &kp LC(MINUS)    &kp LC(PLUS)   &kp ENTER
-&kp LC(Z)       &kp LC(X)     &kp LC(C)      &kp LC(V)   &kp LC(B)      &none       &none   &kp LC(N)  &kp LC(M)  &none            &kp LG(LS(S))  &kp LC(SLASH)
-&none           &none                                    &none          &none       &none   &none      &none      &none            &none          &none
+&kp LC(Q)       &kp LC(W)     &kp LC(E)      &kp LC(R)   &kp LC(T)                          &kp LC(Y)  &kp LC(U)  &kp LC(I)        &kp LG(D)           &kp LG(L)
+&kp LC(A)       &kp LC(S)     &kp LC(D)      &kp LC(F)   &kp LC(G)                          &kp LC(H)  &kp LC(J)  &kp LC(MINUS)    &kp LC(LS(EQUAL))   &kp ENTER
+&kp LC(Z)       &kp LC(X)     &kp LC(C)      &kp LC(V)   &kp LC(B)      &none       &none   &kp LC(N)  &kp LC(M)  &none            &kp LG(LS(S))       &kp LC(SLASH)
+&none           &none                                    &none          &none       &none   &none      &none      &none            &none               &none
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
