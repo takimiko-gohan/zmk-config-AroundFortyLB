@@ -10,13 +10,6 @@
             ;
 };
 
-/ {
-    trackball_listener {
-        compatible = "zmk,input-listener";
-        device = <&trackball>;
-    };
-};
-
 &pinctrl {
     spi0_default: spi0_default {
         group1 {
@@ -80,7 +73,7 @@
 
         auto_scroll_layer_2: auto-scroll-layer-2 {
             compatible = "zmk,behavior-sensor-layer";
-            label = "AUTO_SCROLL_LAYER";
+            label = "AUTO_SCROLL_LAYER_2";
             layer = <2>;            /* scroll-layers */
             timeout-ms = <1200>;
             trigger-threshold = <2>;/* スクロールはやや大きめで発火 */
@@ -89,7 +82,7 @@
 
         auto_scroll_layer_3: auto-scroll-layer-3 {
             compatible = "zmk,behavior-sensor-layer";
-            label = "AUTO_SCROLL_LAYER";
+            label = "AUTO_SCROLL_LAYER_3";
             layer = <3>;            /* scroll-layers */
             timeout-ms = <1200>;
             trigger-threshold = <2>;/* スクロールはやや大きめで発火 */
