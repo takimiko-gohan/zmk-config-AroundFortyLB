@@ -50,7 +50,7 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        evt-type = "relative";
+        evt-type = <1>;
         automouse-layer = <7>;
         scroll-layers = <2 3>;
     };
