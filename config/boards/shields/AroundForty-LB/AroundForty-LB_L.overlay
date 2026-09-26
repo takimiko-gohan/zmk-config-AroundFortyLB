@@ -1,5 +1,9 @@
 #include "AroundForty-LB.dtsi"
 
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <dt-bindings/zmk/input_transform.h>
+#include <input/processors.dtsi>
+
 &kscan0 {
         col-gpios
             = <&xiao_d 10 GPIO_ACTIVE_HIGH>
@@ -43,50 +47,43 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        evt-type = <1>;
-        x-input-code = <0>;
-        y-input-code = <1>; 
+
+        /* 旧 CONFIG_PMW3610_CPI=400 / CONFIG_PMW3610_CPI_DIVIDOR=1 相当 */
+        cpi = <400>;
+
+        /* 旧 CONFIG_PMW3610_ORIENTATION_180=y 相当（Y 軸のみ反転） */
+        invert-y;
+
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
     };
 };
 
-/* トラックボールのイベントを受けるリスナー（behavior に接続するためのノード） */
+/* トラックボールのイベントを受けるリスナー
+ *
+ * 旧ドライバが持っていた automouse-layer / scroll-layers は
+ * ZMK 本体の input-processor 側へ移動したため、ここで再現する。
+ */
 &{/} {
-    trackball_listener {
+    trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-    };
-};
 
-/* behaviors 定義（自動でマウスレイヤー／スクロールレイヤーへ切替） */
-&{/} {
-    behaviors {
-        compatible = "zmk,behaviors";
+        /* 旧 automouse-layer = <7>, CONFIG_PMW3610_AUTOMOUSE_TIMEOUT_MS=2000 相当 */
+        input-processors = <&zip_temp_layer 7 2000>;
 
-        auto_mouse_layer: auto-mouse-layer {
-            compatible = "zmk,behavior-sensor-layer";
-            label = "AUTO_MOUSE_LAYER";
-            layer = <7>;            /* 旧 automouse-layer の番号 */
-            timeout-ms = <2000>;    /* 無操作で戻るまでのミリ秒 */
-            trigger-threshold = <1>;/* 感度（小さいほど敏感） */
-            sensor = <&trackball>;  /* どのセンサーのイベントで発火するか */
-        };
-
-        auto_scroll_layer_2: auto-scroll-layer-2 {
-            compatible = "zmk,behavior-sensor-layer";
-            label = "AUTO_SCROLL_LAYER_2";
-            layer = <2>;            /* scroll-layers */
-            timeout-ms = <1200>;
-            trigger-threshold = <2>;/* スクロールはやや大きめで発火 */
-            sensor = <&trackball>;
-        };
-
-        auto_scroll_layer_3: auto-scroll-layer-3 {
-            compatible = "zmk,behavior-sensor-layer";
-            label = "AUTO_SCROLL_LAYER_3";
-            layer = <3>;            /* scroll-layers */
-            timeout-ms = <1200>;
-            trigger-threshold = <2>;/* スクロールはやや大きめで発火 */
-            sensor = <&trackball>;
+        /* 旧 scroll-layers = <2 3> 相当
+         * ・XY をホイールへ割り当て
+         * ・CONFIG_PMW3610_SCROLL_TICK=16 相当のスケーリング（16 カウントで 1 ノッチ）
+         * ・縦方向の符号を旧ドライバに合わせて反転（横は CONFIG_PMW3610_INVERT_SCROLL_X=y 相当で反転なし）
+         */
+        trackball_scroll {
+            layers = <2 3>;
+            input-processors =
+                <&zip_xy_to_scroll_mapper>,
+                <&zip_scroll_scaler 1 16>,
+                <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
         };
     };
 };
